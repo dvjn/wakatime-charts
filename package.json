@@ -1,0 +1,11 @@
+{
+  "name": "wakatime-charts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate-charts.js",
+  "author": "Divy Jain <dkj@somaiya.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}

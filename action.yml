@@ -1,0 +1,36 @@
+name: "WakaTime Stats Charts Generator"
+author: Divya Jain
+description: "Generates WakaTime Stats Charts to use in README.md"
+
+inputs:
+  WAKATIME_API_KEY:
+    description: "Your WakaTime API Key"
+    required: true
+
+  GITHUB_TOKEN:
+    description: "GitHub access token with Repo"
+    required: true
+    default: ${{ github.token }}
+
+  BRANCH_NAME:
+    description: "Branch that needs to updated"
+    required: false
+    default: "master"
+
+  COMMIT_MESSAGE:
+    description: "Commit message on each updation"
+    required: false
+    default: "📊"
+
+  IMAGES_FOLDER:
+    description: "Name of the folder in which generated charts will be shown"
+    required: false
+    default: "images"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "bar-chart-2"
+  color: "gray-dark"
