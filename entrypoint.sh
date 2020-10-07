@@ -30,6 +30,9 @@ cp -a ../generated/. "${INPUT_IMAGES_FOLDER}"
 echo Copied images
 
 git add "${INPUT_IMAGES_FOLDER}"
-git commit -m "${INPUT_COMMIT_MESSAGE}"
-git push publish ${INPUT_BRANCH_NAME}
+if [ -n "$(git status --porcelain)" ]
+then
+    git commit -m "${INPUT_COMMIT_MESSAGE}"
+    git push publish ${INPUT_BRANCH_NAME}
+fi
 echo Pushed changes
