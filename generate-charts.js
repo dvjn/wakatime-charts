@@ -47,7 +47,9 @@ const generateLanguageStatsChart = (allData) => {
   const document = new JSDOM("").window.document;
   const body = d3.select(document).select("body");
 
-  const languageColors = JSON.parse(fs.readFileSync("colors.json", "utf-8"));
+  const languageColors = JSON.parse(
+    fs.readFileSync("/app/colors.json", "utf-8")
+  );
 
   // SVG
   const svg = body
