@@ -2,11 +2,13 @@
 
 set -e
 
+cd /app
+
 REPOSITORY_NAME="${GITHUB_REPOSITORY##*/}"
 REPOSITORY_URL="https://github.com/${GITHUB_REPOSITORY}.git"
 REMOTE_REPOSITORY="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
-cd /app && node generate-charts.js
+node generate-charts.js
 echo Generated charts
 
 git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
