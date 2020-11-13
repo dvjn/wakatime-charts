@@ -33,8 +33,8 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     svgHeight = 175,
     margin = 20,
     padding = 10,
-    namesWidth = 150,
-    durationsWidth = 125,
+    namesWidth = 100,
+    durationsWidth = 110,
   } = measurements;
 
   // Measurements
@@ -93,7 +93,7 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     .scaleBand()
     .domain(data.map((datum) => datum.name))
     .range([0, statsHeight])
-    .paddingInner(0.2);
+    .paddingInner(0.25);
 
   // Overflow Gradient
 
@@ -209,7 +209,7 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
   // Styles
 
   svg.append("style").html(`
-    text { font: 600 15px 'Segoe UI', Ubuntu, Sans-Serif; fill: #333333 }
+    text { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #333333 }
     .nameText, .durationText { opacity: 0; animation: fadeInAnimation 0.5s ease-in-out forwards; }
     .durationBar { transform: scaleX(0); animation: scaleXInAnimation 0.5s ease-in-out forwards; }
     .titleText { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #2f80ed; animation: fadeInAnimation 0.8s ease-in-out forwards; }
@@ -249,6 +249,9 @@ const generateProjectStatsChart = (data) => {
     title: "Weekly Project Stats",
     data: data.projects.slice(0, 5),
     fill: "#438cee",
+    measurements: {
+      namesWidth: 150,
+    },
   });
 
   saveChart(body, "generated/wakatime_weekly_project_stats.svg");
