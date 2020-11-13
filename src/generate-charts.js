@@ -32,6 +32,7 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     svgWidth = 540,
     svgHeight = 175,
     margin = 20,
+    padding = 10,
     namesWidth = 150,
     durationsWidth = 125,
   } = measurements;
@@ -42,12 +43,12 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
   const contentHeight = svgHeight - 2 * margin;
 
   const namesX = margin;
-  const durationsX = namesX + namesWidth;
-  const chartX = durationsX + durationsWidth;
+  const durationsX = namesX + padding + namesWidth;
+  const chartX = durationsX + padding + durationsWidth;
   const chartWidth = contentWidth - chartX + margin;
 
   const headerY = margin;
-  const headerHeight = 18 + margin / 2;
+  const headerHeight = 18 + padding;
   const statsY = headerY + headerHeight;
   const statsHeight = contentHeight - headerHeight;
 
@@ -95,9 +96,19 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
   // Names
 
   svg
+    .append("clipPath")
+    .attr("id", "nameClip")
+    .append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", namesWidth)
+    .attr("height", statsHeight);
+
+  svg
     .append("g")
     .attr("transform", `translate(${namesX}, ${statsY})`)
     .attr("width", namesWidth)
+    .attr("clip-path", "url(#nameClip)")
     .selectAll()
     .data(data)
     .enter()
@@ -111,9 +122,19 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
   // Durations
 
   svg
+    .append("clipPath")
+    .attr("id", "durationClip")
+    .append("rect")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("width", durationsWidth)
+    .attr("height", statsHeight);
+
+  svg
     .append("g")
     .attr("transform", `translate(${durationsX}, ${statsY})`)
     .attr("width", durationsWidth)
+    .attr("clip-path", "url(#durationClip)")
     .selectAll()
     .data(data)
     .enter()
