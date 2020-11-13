@@ -8,7 +8,8 @@
 
 ---
 
-![exmaple](https://raw.githubusercontent.com/divykj/wakatime-charts/master/exmaple.svg "exmaple")
+![Weekly Language Stats](https://raw.githubusercontent.com/divykj/wakatime-charts/master/images/wakatime_weekly_language_stats.svg "Weekly Language Stats")
+![Weekly Project Stats](https://raw.githubusercontent.com/divykj/wakatime-charts/master/images/wakatime_weekly_project_stats.svg "Weekly Project Stats")
 
 </div>
 
@@ -28,35 +29,31 @@
    name: Wakatime Charts
 
    on:
-   workflow_dispatch:
-   schedule:
+     workflow_dispatch:
+     schedule:
        - cron: "0 0 * * *"
 
    jobs:
-   update-charts:
+     update-charts:
        name: Update wakatime stats charts
        runs-on: ubuntu-latest
        steps:
-       - uses: divykj/wakatime-charts@master
+         - uses: divykj/wakatime-charts@master
            with:
-               WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # only required if using the action in repository other than profile
+             WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # only required if using the action in repository other than profile
    ```
 
 5. Commit this workflow file.
 
 ### Other options
 
-- **`BRANCH_NAME`**: Set the branch on which changes are pushed
-- **`COMMIT_MESSAGE`**: Set the commit message for the changes
-- **`IMAGES_FOLDER`**: Set the folder name in which generated images are stored
+- `BRANCH_NAME`: Set the branch on which charts are pushed
+- `COMMIT_MESSAGE`: Set the commit message for the changes
+- `IMAGES_FOLDER`: Set the folder name in which generated images are stored
 
 ## Inspiration 😍
 
 - [wakatime-readme](https://github.com/marketplace/actions/waka-readme)
 - [Profile-Readme-WakaTime](https://github.com/marketplace/actions/wakatime-stat-update-action)
 - [github-readme-stats](https://github.com/anuraghazra/github-readme-stats)
-
-```
-
-```
