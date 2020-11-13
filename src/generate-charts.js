@@ -63,6 +63,8 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     .attr("height", svgHeight)
     .attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
 
+  const svgDefs = svg.append("defs");
+
   // Card
 
   svg
@@ -93,6 +95,20 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     .range([0, statsHeight])
     .paddingInner(0.2);
 
+  // Overflow Gradient
+
+  const overflowGradient = svgDefs
+    .append("linearGradient")
+    .attr("id", "overflowGradient");
+  overflowGradient
+    .append("stop")
+    .attr("stop-color", "rgba(254, 254, 254, 0)")
+    .attr("offset", "0");
+  overflowGradient
+    .append("stop")
+    .attr("stop-color", "rgba(255, 254, 254, 1)")
+    .attr("offset", "1");
+
   // Names
 
   svg
@@ -119,6 +135,13 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     .attr("style", (_, i) => `animation-delay: ${500 + i * 250}ms`)
     .html((datum) => datum.name);
 
+  svg
+    .append("rect")
+    .attr("transform", `translate(${namesX + namesWidth - padding}, ${statsY})`)
+    .attr("width", padding)
+    .attr("height", statsHeight)
+    .attr("fill", "url(#overflowGradient)");
+
   // Durations
 
   svg
@@ -144,6 +167,16 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     .attr("dominant-baseline", "middle")
     .attr("style", (_, i) => `animation-delay: ${600 + i * 250}ms`)
     .html((datum) => datum.text);
+
+  svg
+    .append("rect")
+    .attr(
+      "transform",
+      `translate(${durationsX + durationsWidth - padding}, ${statsY})`
+    )
+    .attr("width", padding)
+    .attr("height", statsHeight)
+    .attr("fill", "url(#overflowGradient)");
 
   // Chart
 
