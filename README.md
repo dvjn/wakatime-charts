@@ -13,9 +13,9 @@
 
 </div>
 
-## How to Use
+## How to Use 🚀
 
-### Set it up in your repository
+### Set it up in your repository ⚙️
 
 1. Add your wakatime api key from [here](https://wakatime.com/settings/api-key), in your repository secrets with the name `WAKATIME_API_KEY`.
 
@@ -46,11 +46,20 @@
 
 5. Commit this workflow file.
 
-### Other options
+**Note:** The action will run at 00:00 UTC everyday to update the images.
 
-- `BRANCH_NAME`: Set the branch on which charts are pushed
-- `COMMIT_MESSAGE`: Set the commit message for the changes
-- `IMAGES_FOLDER`: Set the folder name in which generated images are stored
+### Other Parameters 🔧
+
+- `BRANCH_NAME`: Set the branch on which charts are pushed. Defaults to `master`
+- `COMMIT_MESSAGE`: Set the commit message for the changes. Defaults to `📊`
+- `IMAGES_FOLDER`: Set the folder name in which generated images are stored. Defaults to `images`
+
+### Using generated images 🔗
+
+Link for the generated images is:
+`https://raw.githubusercontent.com/<username>/<repository>/<branch_name>/<images_folder>/<chart_name>.svg`
+
+Where, the chart name is one of `wakatime_weekly_language_stats` and `wakatime_weekly_project_stats`.
 
 ## Inspiration 😍
 
