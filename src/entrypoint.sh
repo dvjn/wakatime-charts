@@ -11,8 +11,8 @@ REMOTE_REPOSITORY="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GI
 node generate-charts.js
 echo Generated charts
 
-git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-git config --global user.name "GitHub Actions"
+git config --global user.email "${INPUT_GIT_USER_EMAIL}"
+git config --global user.name "${INPUT_GIT_USER_NAME}"
 echo Configured git
 
 git clone --single-branch --branch "${INPUT_BRANCH_NAME}" "${REPOSITORY_URL}" repository > /dev/null

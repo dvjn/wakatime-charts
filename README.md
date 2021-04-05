@@ -53,6 +53,8 @@
 - `BRANCH_NAME`: Set the branch on which charts are pushed. Defaults to `master`
 - `COMMIT_MESSAGE`: Set the commit message for the changes. Defaults to `📊`
 - `IMAGES_FOLDER`: Set the folder name in which generated images are stored. Defaults to `images`
+- `GIT_USER_EMAIL`: Set the user email for git config. Defaults to Github Action Bot's email `41898282+github-actions[bot]@users.noreply.github.com`
+- `GIT_USER_NAME`: Set the user name for git config. Defaults to `Github Action`
 
 ### Using generated images 🔗
 
