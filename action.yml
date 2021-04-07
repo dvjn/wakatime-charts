@@ -27,6 +27,16 @@ inputs:
     required: false
     default: "images"
 
+  GIT_USER_EMAIL:
+    description: "User email for git"
+    required: false
+    default: "41898282+github-actions[bot]@users.noreply.github.com"
+
+  GIT_USER_NAME:
+    description: "User name for git"
+    required: false
+    default: "GitHub Actions"
+
 runs:
   using: "docker"
   image: "Dockerfile"
