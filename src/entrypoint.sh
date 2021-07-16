@@ -4,8 +4,6 @@ set -e
 
 cd /app
 
-REPOSITORY_NAME="${GITHUB_REPOSITORY##*/}"
-REPOSITORY_URL="https://github.com/${GITHUB_REPOSITORY}.git"
 REMOTE_REPOSITORY="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
 node generate-charts.js
@@ -15,7 +13,7 @@ git config --global user.email "${INPUT_GIT_USER_EMAIL}"
 git config --global user.name "${INPUT_GIT_USER_NAME}"
 echo Configured git
 
-git clone --single-branch --branch "${INPUT_BRANCH_NAME}" "${REPOSITORY_URL}" repository > /dev/null
+git clone --single-branch --branch "${INPUT_BRANCH_NAME}" "${REMOTE_REPOSITORY}" repository > /dev/null
 cd repository
 git remote add publish "${REMOTE_REPOSITORY}" > /dev/null
 git checkout "${INPUT_BRANCH_NAME}" > /dev/null
