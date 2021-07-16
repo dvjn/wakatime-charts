@@ -4,7 +4,7 @@ set -e
 
 cd /app
 
-REMOTE_REPOSITORY="https://${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+REMOTE_REPOSITORY="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 
 node generate-charts.js
 echo Generated charts
