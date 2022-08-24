@@ -1,15 +1,15 @@
 <div align="center">
 
-![wakatime-charts](https://socialify.git.ci/divykj/wakatime-charts/image?description=1&font=Inter&owner=1&pattern=Charlie%20Brown&theme=Light "wakatime charts")
+![wakatime-charts](https://socialify.git.ci/dvjn/wakatime-charts/image?description=1&font=Inter&owner=1&pattern=Charlie%20Brown&theme=Light "wakatime charts")
 
-![GitHub Repo stars](https://img.shields.io/github/stars/divykj/wakatime-charts?color=%23dfb317&style=for-the-badge "Github Repo stars")
-![GitHub forks](https://img.shields.io/github/forks/divykj/wakatime-charts?color=%2397ca00&style=for-the-badge "Github forks")
-![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/divykj/wakatime-charts?color=%23fe7d37&label=PULLS&style=for-the-badge "Github pull requests")
+![GitHub Repo stars](https://img.shields.io/github/stars/dvjn/wakatime-charts?color=%23dfb317&style=for-the-badge "Github Repo stars")
+![GitHub forks](https://img.shields.io/github/forks/dvjn/wakatime-charts?color=%2397ca00&style=for-the-badge "Github forks")
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/dvjn/wakatime-charts?color=%23fe7d37&label=PULLS&style=for-the-badge "Github pull requests")
 
 ---
 
-![Weekly Language Stats](https://raw.githubusercontent.com/divykj/wakatime-charts/master/images/wakatime_weekly_language_stats.svg "Weekly Language Stats")
-![Weekly Project Stats](https://raw.githubusercontent.com/divykj/wakatime-charts/master/images/wakatime_weekly_project_stats.svg "Weekly Project Stats")
+![Weekly Language Stats](https://raw.githubusercontent.com/dvjn/wakatime-charts/master/images/wakatime_weekly_language_stats.svg "Weekly Language Stats")
+![Weekly Project Stats](https://raw.githubusercontent.com/dvjn/wakatime-charts/master/images/wakatime_weekly_project_stats.svg "Weekly Project Stats")
 
 </div>
 
@@ -38,7 +38,7 @@
        name: Update wakatime stats charts
        runs-on: ubuntu-latest
        steps:
-         - uses: divykj/wakatime-charts@master
+         - uses: dvjn/wakatime-charts@master
            with:
              WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # only required if using the action in repository other than profile
