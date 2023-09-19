@@ -62,6 +62,7 @@ const drawStatsChart = (body, { title, data, fill, measurements = {} }) => {
     .attr("width", svgWidth)
     .attr("height", svgHeight)
     .attr("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+    .style("background-color", "transparent");
 
   const svgDefs = svg.append("defs");
 
